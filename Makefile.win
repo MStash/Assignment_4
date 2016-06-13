@@ -1,0 +1,35 @@
+# Project: Assignment4
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = StahleyStash-assn4-main.o Stash-assn4-funcs.o Stahley-assn4-funcs.o
+LINKOBJ  = StahleyStash-assn4-main.o Stash-assn4-funcs.o Stahley-assn4-funcs.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = Assignment4.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+StahleyStash-assn4-main.o: StahleyStash-assn4-main.cpp
+	$(CPP) -c StahleyStash-assn4-main.cpp -o StahleyStash-assn4-main.o $(CXXFLAGS)
+
+Stash-assn4-funcs.o: Stash-assn4-funcs.cpp
+	$(CPP) -c Stash-assn4-funcs.cpp -o Stash-assn4-funcs.o $(CXXFLAGS)
+
+Stahley-assn4-funcs.o: Stahley-assn4-funcs.cpp
+	$(CPP) -c Stahley-assn4-funcs.cpp -o Stahley-assn4-funcs.o $(CXXFLAGS)
